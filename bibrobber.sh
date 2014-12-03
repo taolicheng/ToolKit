@@ -22,20 +22,20 @@ extractbib(){
 	echo $Tag;
 
 	if [[ $Tag =~ ^[0-9]+$ ]]; then
-		eigine="inspirehep.net"
+		engine="inspirehep.net"
 	elif [[ $Tag =~ [A-Z] ]]; then
-		eigine="cds.cern.ch"
+		engine="cds.cern.ch"
 	else 
 		echo "search unavailable!"
 		exit 0
 	fi
 
-	echo $eigine
+	echo $engine
 
 	rm bibfile
-	#wget -q -O bibfile http://$eigine/search?p=find+eprint+$1\&of=hx
-	#wget -q -O bibfile http://$eigine/search?p=find+eprint+$1\&of=hx | sed -i "/<pre>/,/<\/pre>/p"
-	wget -q -O bibfile http://$eigine/search?p=$key\&of=hx
+	#wget -q -O bibfile http://$engine/search?p=find+eprint+$1\&of=hx
+	#wget -q -O bibfile http://$engine/search?p=find+eprint+$1\&of=hx | sed -i "/<pre>/,/<\/pre>/p"
+	wget -q -O bibfile http://$engine/search?p=$key\&of=hx
 	sed -i '1,/<pre>/d' bibfile
 	sed -i '/<\/pre>/,$d' bibfile
 	cat bibfile >> $file
