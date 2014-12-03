@@ -43,6 +43,8 @@ extractbib(){
 }
 
 
+echo "updated on $(date)" >>$2
+
 if [ -f $1 ]; then
 
 	while read line
