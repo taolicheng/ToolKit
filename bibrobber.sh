@@ -43,7 +43,7 @@ extractbib(){
 }
 
 
-echo "updated on $(date)" >>$2
+echo "%updated on $(date)" >>$2
 
 if [ -f $1 ]; then
 
